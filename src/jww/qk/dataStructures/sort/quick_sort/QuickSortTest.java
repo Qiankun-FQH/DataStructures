@@ -16,16 +16,16 @@ public class QuickSortTest {
         sort(arr,0,arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
-
+//3,2,1
+    //1,2,3
     private static void sort(int[] arr, int left, int right) {
         int l = left;
         int r = right;
         int mid = arr[(l + r) / 2];
-
-        while(l < r){
+        while (l < r){
             while(arr[l] < mid)
                 l++;
-            while(arr[r] > mid)
+            while (arr[r] > mid)
                 r--;
             if(l == r)
                 break;
@@ -33,7 +33,7 @@ public class QuickSortTest {
             arr[l] = arr[r];
             arr[r] = temp;
 
-            if(arr[l] == mid)
+            if(arr[l] == mid)//1,3,2,5,2,2 // 1,2,2,5,2,3
                 r--;
             if(arr[r] == mid)
                 l++;
@@ -42,10 +42,10 @@ public class QuickSortTest {
             l++;
             r--;
         }
-        if(left < r)
-            sort(arr, left, r);
-        if(right > l)
+        if(l < right)
             sort(arr, l, right);
+        if(r > left)
+            sort(arr, left, r);
 
     }
 }
